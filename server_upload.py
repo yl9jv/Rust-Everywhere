@@ -16,7 +16,7 @@ class Upload:
 
     def POST(self):
         x = web.input(myfile={})
-        filedir = '/home/student/Final_Project' # change this to the directory you want to store the file in.
+        filedir = '/home/student/Rust-Everywhere' # change this to the directory you want to store the file in.
         if 'myfile' in x: # to check if the file-object is created
             filepath=x.myfile.filename.replace('\\','/') # replaces the windows-style slashes with linux ones.
             filename="pig.rs"
