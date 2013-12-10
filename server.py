@@ -3,7 +3,16 @@ import subprocess
 import os
 import string
 
-urls = ('/', 'Upload')
+urls = (
+	'/', 'Home',
+	'/upload', 'Upload'
+	)
+
+class Home:
+	def GET(self):
+		return """<html><head></head><body>
+<a href='upload'> Enter your code </a>
+</body></html>"""
 
 class Upload:
     def GET(self):
