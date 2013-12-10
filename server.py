@@ -1,6 +1,7 @@
 import web
 import subprocess
 import os
+import string
 
 urls = ('/', 'Upload')
 
@@ -27,12 +28,12 @@ class Upload:
 	fname = filedir + '/' + filename
 	fout = open(fname,'w') # creates the file where file should be stored
 	if 'myfile' in x: # to check if the file-object is created
-		if data != "":	
+		if len(data) != 0:	
 			fout = open(fname, 'w')
 			fout.write(data)
-    	else:
-        	filepath=x.myfile.filename.replace('\\','/') # replaces the windows-style slashes with linux ones.
-        	fout.write(x.myfile.file.read()) # writes the uploaded file to the newly created file.
+		else:
+			filepath=x.myfile.filename.replace('\\','/') # replaces the windows-style slashes with linux ones.
+			fout.write(x.myfile.file.read()) # writes the uploaded file to the newly created file.
 	fout.close()
 
 	try:
