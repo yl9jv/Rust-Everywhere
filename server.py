@@ -60,10 +60,21 @@ class Everywhere:
         return """<html><head><style>body {
              background-color:#cccccc;
             }</style></head><body>
+<br>
 <form method="POST" enctype="multipart/form-data" action="">
-<p> Enter your code here </p> <br>
+<p> Enter your code here 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Enter user input, if any, before submitting
+</p> <br>
 <textarea rows="20" cols="100"name='comment'>
-</textarea><br>
+</textarea>
+<textarea rows="20" cols="100"name='input'>
+</textarea>
+<br>
 <p> Or you code upload a file </p>
 <input type="file" name="myfile" />
 <br/>
@@ -77,6 +88,7 @@ class Everywhere:
     def POST(self):
 		x = web.input(myfile={})
 		data = web.input().comment
+		user_input = web.input().input
 		filedir = '/home/student/Rust-Everywhere'# change this to the directory you want to store the file in.
 		filename = 'pig.rs'
 		fname = filedir + '/' + filename
@@ -90,11 +102,12 @@ class Everywhere:
 				fout.write(x.myfile.file.read()) # writes the uploaded file to the newly created file.
 		fout.close()
 
-		try:
-			result = subprocess.check_output(["/usr/bin/rust", "run", fname], stderr=subprocess.STDOUT)
-			os.remove(fname)
-		except subprocess.CalledProcessError as e:
-			return """<html>
+		if len(user_input) == 0:
+			try:
+				result = subprocess.check_output(["/usr/bin/rust", "run", fname], stderr=subprocess.STDOUT)
+				os.remove(fname)
+			except subprocess.CalledProcessError as e:
+				return """<html>
 				<br>
 				<br>
 				<head><style>body {
@@ -110,8 +123,8 @@ class Everywhere:
 				<a href='/Rust_Everywhere'> Back </a> &nbsp;
 				<a href='/'> Home </a>
 				</body></html>"""
-		else:
-			return """<html>
+			else:
+				return """<html>
 				<br>
 				<br>
 				<head><style>body {
@@ -127,6 +140,28 @@ class Everywhere:
 				<a href='/'> Home </a>
 				</body></html>"""
 
+		else:
+			p = subprocess.Popen(["/usr/bin/rust", "run", fname], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+			p.stdin.write(user_input)
+			output = p.communicate()[0]
+			os.remove(fname)
+			return """<html>
+				<br>
+				<br>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
+				<h2 align='center'> Here is your result! </h2> <br>
+				<br>
+				<br>
+				""" + output + """
+				<br>
+				<br>
+				
+				<a href='/Rust_Everywhere'> Back </a> &nbsp;
+				<a href='/'> Home </a>
+				</body></html>"""
+			
 
 class Concise:
     def GET(self):
