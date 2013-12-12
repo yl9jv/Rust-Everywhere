@@ -900,36 +900,32 @@ class Visible:
         return """<html><head></head><body>
 <br>
 <br>
-<p align='center'><font size='7pt'> Q6: Mut it </font></h2>
+<p align='center'><font size='7pt'> Q7: Hoos Invisible? </font></h2>
 <br>
 <br>
 <br>
-<p> As you may know, variables in Rust are immutable by default! For example, if you want to change the value of x later, you definitely want to declare it in this way: <br>
-<br>
-<br>
-<font color='green'>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let mut a = 10;<br>
-</font>
-<br>
-<br>
-Without the key word "mut", you will get a compile error! <br>
-Rust also formalizes the concept of object ownership to delegate management of an object's lifetime to either a variable or a task-local garbage collector.<br>
-An object's owner is responsible for managing the lifetime of the object by calling the destructor, and the owner determines whether the object is mutable.<br>
+<p> In the following code, our module hierarchy is now two modules deep. There is the crate root, which contains your main() function, and the module farm. <br>
+The module farm also contains a function and a module white_animals, which futher contains two functions.<br>
+However, somehow the code does not compile due to the visibility problem.<br>
 <br>
 <br>
 <font size='4pt' color='red'>
-Try compiling the following code and see the error message if you want.<br>
-Now given that the mutability is inherited, how do you modify the code to make it compile?<br>
-Also add code to print out the value of y at the end (hint: you need to dereference it first)?<br>
+First compile to see the error message. Then, how would you change the code?<br>
 <br>
 <br>
 </font>
 <font color='green'>
+&nbsp;&nbsp;&nbsp;&nbsp;mod farm { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn pig() { println("Heng heng"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mod white_animals {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn cow() { println("Mooo"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn fox() { println("Ahh..."); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
 &nbsp;&nbsp;&nbsp;&nbsp;fn main() { <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;struct Foo {x: int, y: ~int}<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let a = Foo {x: 5, y: ~10};<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a.x += 10;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;println(a.x.to_str());<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::pig();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::white_animals::cow();<br>
 &nbsp;&nbsp;&nbsp;&nbsp;}<br>
 </font>
 </p>
@@ -945,7 +941,7 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 <br>
 <br>
 <p> Don't know how to do it? No worries! Take a look at the solution and try again. </p>
-<a href='/p6_solution'> Solution </a> <br>
+<a href='/p7_solution'> Solution </a> <br>
 <br>
 <a href='/'> Home </a>
 <br>
@@ -984,11 +980,11 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 				""" + e.output + """
 				<br>
 				<br>
-				<a href='/problem_6'> Back </a> &nbsp;
+				<a href='/problem_7'> Back </a> &nbsp;
 				<a href='/'> Home </a>
 				</body></html>"""
 		else:
-			if result == "15\n10\n":
+			if result == "Heng heng\nMooo\n":
 				return """<html>
 				<br>
 				<br>
@@ -1001,11 +997,11 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 					<br>
 					<br>
 					Correct result is:<br>
-					15&nbsp;10
+					Heng heng&nbsp;Mooo
 					</p>
 					<br>
 					<br>
-					<a href='/problem_6'> Back </a> &nbsp;
+					<a href='/problem_7'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
 			else:
@@ -1021,11 +1017,11 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 					<br>
 					<br>
 					Correct result is:<br>
-					15&nbsp;10
+					Heng heng&nbsp;Mooo
 					</p>
 					<br>
 					<br>
-					<a href='/problem_6'> Back </a> &nbsp;
+					<a href='/problem_7'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
 
@@ -1066,7 +1062,7 @@ For example, you might write a piece of code like this:<br>
 </font></p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1128,7 +1124,7 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 </p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1179,7 +1175,7 @@ How would you print them out in order (note that the strings are specified by po
 </p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1195,7 +1191,18 @@ How would you print them out in order (note that the strings are specified by po
 <br>
 <a href='/problem_3'> Back </a>
 <br>
-<br>
+<br>mod farm {
+        pub fn pig() { println("Heng heng"); }
+        mod white_animals {
+            pub fn cow() { println("Mooo"); }
+            pub fn fox() { println("Ahh..."); }
+        }
+    }
+
+    fn main() {
+        ::farm::pig();
+        ::farm::white_animals::cow();
+    }
 </body></html>"""
 
 
@@ -1225,7 +1232,18 @@ Now you are given the following code in C:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch (p) {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 0: printf("zero\n"); break;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1: ;<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2: printf("one or two\n"); break;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nmod farm {
+        pub fn pig() { println("Heng heng"); }
+        mod white_animals {
+            pub fn cow() { println("Mooo"); }
+            pub fn fox() { println("Ahh..."); }
+        }
+    }
+
+    fn main() {
+        ::farm::pig();
+        ::farm::white_animals::cow();
+    }bsp;&nbsp;&nbsp;case 2: printf("one or two\n"); break;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3: ;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 4: ;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 5: printf("three to five\n"); break;<br>
@@ -1242,7 +1260,7 @@ How would you translate that into Rust?
 </p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1294,7 +1312,7 @@ Write a function that uses the closure to print:<br>
 </p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1354,7 +1372,7 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 </p>
 <br>
 <br>
-<p font size = '5pt'> Sample Solution. </p>
+<p font size = '5pt'> Sample Solution: </p>
 <br>
 <br>
 <br>
@@ -1370,6 +1388,69 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 <br>
 <br>
 <a href='/problem_6'> Back </a>
+<br>
+<br>
+</body></html>"""
+
+
+class p7_solution:
+    def GET(self):
+        web.header("Content-Type","text/html; charset=utf-8")
+        return """<html><head></head><body>
+<br>
+<br>
+<p align='center'><font size='7pt'> Q7: Hoos Invisible? </font></h2>
+<br>
+<br>
+<br>
+<p> In the following code, our module hierarchy is now two modules deep. There is the crate root, which contains your main() function, and the module farm. <br>
+The module farm also contains a function and a module white_animals, which futher contains two functions.<br>
+However, somehow the code does not compile due to the visibility problem.<br>
+<br>
+<br>
+<font size='4pt' color='red'>
+First compile to see the error message. Then, how would you change the code?<br>
+<br>
+<br>
+</font>
+<font color='green'>
+&nbsp;&nbsp;&nbsp;&nbsp;mod farm { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn pig() { println("Heng heng"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mod white_animals {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn cow() { println("Mooo"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fn fox() { println("Ahh..."); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fn main() { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::pig();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::white_animals::cow();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</font>
+</p>
+<br>
+<br>
+<p font size = '5pt'> Sample Solution: </p>
+<br>
+<br>
+<br>
+<font color='green'>
+&nbsp;&nbsp;&nbsp;&nbsp;mod farm { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub fn pig() { println("Heng heng"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mod white_animals {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub fn cow() { println("Mooo"); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pub fn fox() { println("Ahh..."); }<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;fn main() { <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::pig();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::farm::white_animals::cow();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+</font>
+<br>
+<br>
+<a href='/problem_7'> Back </a>
 <br>
 <br>
 </body></html>"""
