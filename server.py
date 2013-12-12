@@ -26,6 +26,10 @@ class Home:
 	def GET(self):
 		return """<html>
 <head>
+<style>body {
+             background-color:#cccccc;
+            }
+</style>
 </head>
 <br>
 <br>
@@ -53,7 +57,9 @@ class Home:
 class Everywhere:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <form method="POST" enctype="multipart/form-data" action="">
 <p> Enter your code here </p> <br>
 <textarea rows="20" cols="100"name='comment'>
@@ -91,13 +97,16 @@ class Everywhere:
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Here is your result! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
 				<br>
+				
 				<a href='/Rust_Everywhere'> Back </a> &nbsp;
 				<a href='/'> Home </a>
 				</body></html>"""
@@ -105,7 +114,9 @@ class Everywhere:
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Here is your result! </h2> <br>
 				<br>
 				<br>
@@ -120,7 +131,9 @@ class Everywhere:
 class Concise:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'> <font size='7pt'>Q1.Make It More Concise </font></p>
@@ -194,12 +207,16 @@ For example, you might write a piece of code like this:<br>
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_1'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -209,7 +226,9 @@ For example, you might write a piece of code like this:<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -221,6 +240,8 @@ For example, you might write a piece of code like this:<br>
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_1'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -228,7 +249,9 @@ For example, you might write a piece of code like this:<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -240,6 +263,8 @@ For example, you might write a piece of code like this:<br>
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_1'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -249,7 +274,9 @@ For example, you might write a piece of code like this:<br>
 class Return:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q2: Where Is My Return?! </font></h2>
@@ -324,12 +351,16 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_2'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -339,7 +370,9 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -351,6 +384,8 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_2'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -358,7 +393,9 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -370,6 +407,8 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_2'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -378,7 +417,9 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 class Loop:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q3: Loop the Loop </font></h2>
@@ -445,12 +486,16 @@ How would you print them out in order (note that the strings are specified by po
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_3'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -460,7 +505,9 @@ How would you print them out in order (note that the strings are specified by po
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -473,6 +520,8 @@ How would you print them out in order (note that the strings are specified by po
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_3'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -480,7 +529,9 @@ How would you print them out in order (note that the strings are specified by po
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -493,6 +544,8 @@ How would you print them out in order (note that the strings are specified by po
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_3'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -501,7 +554,9 @@ How would you print them out in order (note that the strings are specified by po
 class Match:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q4: Are We A Good Match? </font></h2>
@@ -583,12 +638,16 @@ How would you translate that into Rust?
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_4'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -598,7 +657,9 @@ How would you translate that into Rust?
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -610,6 +671,8 @@ How would you translate that into Rust?
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_4'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -617,7 +680,9 @@ How would you translate that into Rust?
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -629,6 +694,8 @@ How would you translate that into Rust?
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_4'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -637,7 +704,9 @@ How would you translate that into Rust?
 class Closure:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q5: You need some closure </font></h2>
@@ -705,12 +774,16 @@ Write a function that uses the closure to print:<br>
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_5'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -720,7 +793,9 @@ Write a function that uses the closure to print:<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -733,6 +808,8 @@ Write a function that uses the closure to print:<br>
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_5'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -740,7 +817,9 @@ Write a function that uses the closure to print:<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -753,6 +832,8 @@ Write a function that uses the closure to print:<br>
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_5'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -761,7 +842,9 @@ Write a function that uses the closure to print:<br>
 class Mut:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q6: Mut it </font></h2>
@@ -841,12 +924,16 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_6'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -856,7 +943,9 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -869,6 +958,8 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_6'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -876,7 +967,9 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -889,6 +982,8 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_6'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -897,7 +992,9 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 class Visible:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q7: Hoos Invisible? </font></h2>
@@ -973,12 +1070,16 @@ First compile to see the error message. Then, how would you change the code?<br>
 			return """<html>
 				<br>
 				<br>
-				<head></head><body>
+				<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 				<h2 align='center'> Sorry. Try again! </h2> <br>
 				<br>
 				<br>
 				""" + e.output + """
 				<br>
+				<br>
+				<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
 				<br>
 				<a href='/problem_7'> Back </a> &nbsp;
 				<a href='/'> Home </a>
@@ -988,7 +1089,9 @@ First compile to see the error message. Then, how would you change the code?<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Congratulations! </h2> <br>
 					<br>
 					<br>
@@ -1001,6 +1104,8 @@ First compile to see the error message. Then, how would you change the code?<br>
 					</p>
 					<br>
 					<br>
+					<img src="https://lh6.googleusercontent.com/-PZRVLY5Gsvg/Uqk1dnfUVFI/AAAAAAAAAlI/uLc-7FITZpw/w411-h548-no/photo.JPG"><br>
+				<br>
 					<a href='/problem_7'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -1008,7 +1113,9 @@ First compile to see the error message. Then, how would you change the code?<br>
 				return """<html>
 				<br>
 				<br>
-					<head></head><body>
+					<head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 					<h2 align='center'> Sorry. Try again! </h2> <br>
 					<br>
 					<br>
@@ -1021,6 +1128,8 @@ First compile to see the error message. Then, how would you change the code?<br>
 					</p>
 					<br>
 					<br>
+					<img src="http://www.cs.virginia.edu/~evans/pictures/me/08-small.png"><br>
+				<br>
 					<a href='/problem_7'> Back </a> &nbsp;
 					<a href='/'> Home </a>
 					</body></html>"""
@@ -1030,7 +1139,9 @@ First compile to see the error message. Then, how would you change the code?<br>
 class p1_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'> <font size='7pt'>Q1.Make It More Concise </font></p>
@@ -1091,7 +1202,9 @@ For example, you might write a piece of code like this:<br>
 class p2_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q2: Where Is My Return?! </font></h2>
@@ -1150,7 +1263,9 @@ Could you help me get rid of the keyword "return"? It just really bothers me...
 class p3_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q3: Loop the Loop </font></h2>
@@ -1191,25 +1306,16 @@ How would you print them out in order (note that the strings are specified by po
 <br>
 <a href='/problem_3'> Back </a>
 <br>
-<br>mod farm {
-        pub fn pig() { println("Heng heng"); }
-        mod white_animals {
-            pub fn cow() { println("Mooo"); }
-            pub fn fox() { println("Ahh..."); }
-        }
-    }
-
-    fn main() {
-        ::farm::pig();
-        ::farm::white_animals::cow();
-    }
+<br>
 </body></html>"""
 
 
 class p4_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q4: Are We A Good Match? </font></h2>
@@ -1286,7 +1392,9 @@ How would you translate that into Rust?
 class p5_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q5: You need some closure </font></h2>
@@ -1334,7 +1442,9 @@ Write a function that uses the closure to print:<br>
 class p6_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q6: Mut it </font></h2>
@@ -1396,7 +1506,9 @@ Also add code to print out the value of y at the end (hint: you need to derefere
 class p7_solution:
     def GET(self):
         web.header("Content-Type","text/html; charset=utf-8")
-        return """<html><head></head><body>
+        return """<html><head><style>body {
+             background-color:#cccccc;
+            }</style></head><body>
 <br>
 <br>
 <p align='center'><font size='7pt'> Q7: Hoos Invisible? </font></h2>
